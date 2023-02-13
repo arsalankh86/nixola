@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
-import { getAllPokemonList } from "../api/dataApi";
+import { getAllPokemonList } from "./api/dataApi";
 
 function App() {
   const [pokemonData,setPokemonData] = useState([]);
