@@ -24,6 +24,24 @@ type Config = {
 };
 
 export function register(config?: Config) {
+  if (process.env.NODE_ENV === 'development' && 'serviceWorker' in navigator) {
+
+  const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);
+  if (publicUrl.origin !== window.location.origin) {
+     return;
+  }
+  const swUrl = './serviceWorker.js'; 
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register(swUrl).then((reg)=>{
+        console.log("Worker Registered");
+      }).catch((err)=>{
+        console.log("Error", err);
+    })
+  });
+  }
+}
+
+export function registerOld(config?: Config) {
   if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
     const publicUrl = new URL(process.env.PUBLIC_URL, window.location.href);

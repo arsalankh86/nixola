@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { getAllPokemonList } from "./api/dataApi";
@@ -19,7 +18,7 @@ function App() {
       
       {pokemonData?.map((poke:any,i:any) => {
         return (
-          <div style={{width: '400px',height:'330px', border:'2px solid #000000', margin:'30px 10px'}}>
+          <div key={i} style={{width: '400px',height:'330px', border:'2px solid #000000', margin:'30px 10px'}}>
               <div style={{padding:'5px 10px'}}>
                 <p style={{fontWeight:'bold',textTransform:'capitalize'}}> {poke?.name}</p>
               </div>
