@@ -10,7 +10,6 @@ function App() {
   useEffect(() => {
 
     async function fetchData(){
-      debugger;
       const data = await getAllPokemonList();
       sortDataByName(data?.results);
       searchDataByName(data?.results, "caterpie");
