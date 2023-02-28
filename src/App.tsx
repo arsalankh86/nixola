@@ -2,13 +2,18 @@ import React from 'react';
 import './App.css';
 import { useEffect, useState } from 'react';
 import { getAllPokemonList } from "./api/dataApi";
+import { sortData, searchData, sortDataByName, searchDataByName } from "./service/utils";
 
 function App() {
   const [pokemonData,setPokemonData] = useState([]);
   
   useEffect(() => {
+
     async function fetchData(){
+      debugger;
       const data = await getAllPokemonList();
+      sortDataByName(data?.results);
+      searchDataByName(data?.results, "caterpie");
       setPokemonData(data?.results);
     }
     fetchData();
