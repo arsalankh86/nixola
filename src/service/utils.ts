@@ -51,7 +51,6 @@ export const sortDataByName = (arr: any) =>{
 }
 
 export const searchDataByName = (arr: any, searchItem: any) =>{
-    debugger;
     let startIndex = 0;
     let endIndex = arr.length-1;
 
